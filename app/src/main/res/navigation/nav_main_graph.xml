@@ -28,15 +28,28 @@
         android:name="com.example.navex1.main.PinFragment"
         android:label="fragment_pin"
         tools:layout="@layout/fragment_pin" >
-
-        <action android:id="@+id/action_pinFragment_to_SecondGraph"
-            app:destination="@id/nav_second_graph"/>
+        <action
+            android:id="@+id/action_pinFragment_to_verifyOptionFragment2"
+            app:destination="@id/verifyOptionFragment2" />
     </fragment>
 
-    <include app:graph="@navigation/nav_second_graph" />
-
-    <action android:id="@+id/action_second_to_inputInfo"
-        app:destination="@id/inputInfoFragment"
-        app:popUpTo="@id/inputInfoFragment"
-        app:popUpToInclusive="false"/>
+    <fragment
+        android:id="@+id/verifyOptionFragment2"
+        android:name="com.example.navex1.second.VerifyOptionFragment"
+        android:label="VerifyOptionFragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:action="ACTION_VIEW"
+            app:uri="http://www.example.com/gizmos/{text}"
+            />
+        <action
+            android:id="@+id/action_verifyOptionFragment2_to_inputInfoFragment"
+            app:destination="@id/inputInfoFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/inputInfoFragment"/>
+        <argument
+            android:name="text"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

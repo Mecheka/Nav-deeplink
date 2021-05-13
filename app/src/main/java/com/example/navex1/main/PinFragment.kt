@@ -47,7 +47,7 @@ class PinFragment : BaseFragment() {
 
                 override fun afterTextChanged(s: Editable?) {
                     if (s?.length == 6) {
-                        findNavController().navigate(R.id.action_pinFragment_to_SecondGraph,
+                        findNavController().navigate(R.id.action_pinFragment_to_verifyOptionFragment2,
                         bundleOf(
                             VerifyOptionFragment.BUNDLE_FROM to "Nav"
                         ))

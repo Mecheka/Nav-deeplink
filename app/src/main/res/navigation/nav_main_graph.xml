@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.navex1.main.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen">
+        <action
+            android:id="@+id/action_splashScreenFragment_to_inputInfoFragment"
+            app:destination="@id/inputInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputInfoFragment"
+        android:name="com.example.navex1.main.InputInfoFragment"
+        android:label="fragment_input_info"
+        tools:layout="@layout/fragment_input_info">
+        <action
+            android:id="@+id/action_inputInfoFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.example.navex1.main.PinFragment"
+        android:label="fragment_pin"
+        tools:layout="@layout/fragment_pin" >
+
+        <action android:id="@+id/action_pinFragment_to_SecondGraph"
+            app:destination="@id/nav_second_graph"/>
+    </fragment>
+
+    <include app:graph="@navigation/nav_second_graph" />
+
+    <action android:id="@+id/action_second_to_inputInfo"
+        app:destination="@id/inputInfoFragment"
+        app:popUpTo="@id/inputInfoFragment"
+        app:popUpToInclusive="false"/>
+</navigation>
